@@ -4,13 +4,13 @@ let
     pkgs = import <nixpkgs> {};
     extrapkgs = import (builtins.fetchGit {
         url = https://github.com/Dafaque/nixpkgs.git;
-        ref = refs/tags/v1.0.0;
+        ref = refs/tags/v1.1.0;
     }) {};
 in
 pkgs.mkShell {
     nativeBuildInputs = with pkgs; [
-        go_1_20
-        extrapkgs.oapi-codegen_2_0
+        go_1_22
+        extrapkgs.oapi-codegen_2
     ];
 }
 ```
