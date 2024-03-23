@@ -1,7 +1,7 @@
 { lib, buildGoModule }:
 buildGoModule rec {
   pname = "oapi-codegen";
-  version = "2.0.0";
+  version = "2.1.0";
 
   src = builtins.fetchGit {
     url = "https://github.com/deepmap/${pname}";
@@ -9,9 +9,9 @@ buildGoModule rec {
   };
   
   subPackages = ["cmd/${pname}"];
-  vendorHash = "sha256-QOeXTIrAeFRGTv0iH8iKmbdVVALca5RVCuAryi0iMPM=";
+  vendorHash = "sha256-UMOy8/FTajcmUdgVS4s0XlrUBqLN1B+9DhLDpi6NBrQ=";
   proxyVendor = true;
-  ldflags = "-X main.noVCSVersionOverride=v${version}";
+  ldflags = ["-X main.noVCSVersionOverride=v${version}"];
 
   # Tests use network
   doCheck = false;
